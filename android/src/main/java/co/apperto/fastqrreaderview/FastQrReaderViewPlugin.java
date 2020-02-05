@@ -164,11 +164,10 @@ public class FastQrReaderViewPlugin implements MethodCallHandler, PluginRegistry
 
         cameraManager = (CameraManager) registrar.activity().getSystemService(Context.CAMERA_SERVICE);
 
-        channel.setMethodCallHandler(
-                new FastQrReaderViewPlugin(registrar, registrar.view(), registrar.activity()));
-
         FastQrReaderViewPlugin plugin = new FastQrReaderViewPlugin(registrar, registrar.view(), registrar.activity());
+
         channel.setMethodCallHandler(plugin);
+
         registrar.addRequestPermissionsResultListener(plugin);
     }
 
